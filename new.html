@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Background Image Change</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            transition: background 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        
+        const images = [
+            'background1.jpg',
+            'backgroundimg.jpg',
+            'aboutimg.jpg'
+            
+        ];
+
+        let currentIndex = 0;
+
+        function changeBackground() {
+            document.body.style.backgroundImage = `url(${images[currentIndex]})`;
+            currentIndex = (currentIndex + 1) % images.length;
+        }
+
+        // Change background every 5 seconds (5000 milliseconds)
+        setInterval(changeBackground, 5000);
+
+        // Initial background setup
+        changeBackground();
+    </script>
+</body>
+</html>
